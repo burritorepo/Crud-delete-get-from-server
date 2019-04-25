@@ -2,8 +2,7 @@ export default function Modal(opt) {
   this.element = opt.element;
   //function to call Run user from Modal
   this.referenceToUserFunction = opt.runUser;
-  this.form = opt.element.querySelector('form');
-  this.saveUserBtn = this.form.querySelector('.js_save_user');
+  this.form = this.element.querySelector('form');
   this.runUserFunction();
 }
 
@@ -21,16 +20,18 @@ Modal.prototype.close = function () {
 };
 
 Modal.prototype.runUserFunction = function () {
-  this.submit(this.form);
+  this.waitsubmit(this.referenceToUserFunction);
 };
 
-Modal.prototype.innerfoo = function () {
-  console.log('dentro submit');
+Modal.prototype.waitsubmit = function (runUser) {
+  this.form.onsubmit = submit.bind(this); //I didn't use submit() first because it means I'm calling the function and onsubmit won't work
+  function submit(e) {
+    e.preventDefault();
+    this.close();
+    new runUser(this.element);
+  }
 }
 
-Modal.prototype.submit = function (form) {
-  form.onsubmit = this.innerfoo();
-};
 
 
 
