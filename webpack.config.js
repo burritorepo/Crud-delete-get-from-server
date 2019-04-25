@@ -1,4 +1,4 @@
-/* const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -56,37 +56,4 @@ module.exports = {
     title: 'Babel + Webpack, Loaders, Plugins + ESLint',
     template: 'index.html'
   })]
-}; */
-
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-module.exports = {
-  entry: {
-    home: path.resolve(__dirname,'./pruebas/home.js'),
-    portfolio: path.resolve(__dirname,'./pruebas/portfolio.js')
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname,'./pruebas/dist'),
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, './pruebas/dist'),
-    compress: true,
-    port: 9000,
-    hot: true
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      inject: true,
-      chunks: ['home'],
-      template: './pruebas/home.html',
-      filename: 'home.html'
-    }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      chunks: ['portfolio'],
-      filename: 'portfolio.html'
-    })
-  ]
-}
+};

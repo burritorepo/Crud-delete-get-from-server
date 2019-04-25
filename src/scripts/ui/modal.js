@@ -19,6 +19,11 @@ Modal.prototype.close = function () {
   this.element.classList.remove('show');
 };
 
+Modal.prototype.edit = function () {
+  console.log('open', this.element);
+  this.element.classList.add('show');
+};
+
 Modal.prototype.runUserFunction = function () {
   this.waitsubmit(this.referenceToUserFunction);
 };
