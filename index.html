@@ -18,75 +18,67 @@
       </nav>
     </header>
     <main>
-      <!-- Fake card -->
-      <div class="card d-flex justify-content-center align-items-center" style="width: 18rem;">
-        <div class="modifyCard d-flex align-items-between">
-          <button type="button" class="js_modify fas fa-user-edit mx-3"></button>
-          <button type="button" class="js_delete fas fa-trash-alt mx-3"></button>
-        </div>
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body d-flex">
-          <h5 class="card-title">Name</h5>
-        </div>
-      </div>
+
       <!-- Button to open Modal form -->
       <div class="container">
-        <div id="users"></div>
+        <div id="users" class="d-flex justify-content-center align-items-center"></div>
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh; margin-top: -56px">
           <button class="js_open_modal_form btn btn-primary">Add user</button>
-          <button class="js_open_modal_alert btn btn-primary">Delete user</button>
         </div>
+      </div>
+      <!-- Modal form -->
+      <div class="js_modal_form modal fade">
+        <form>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-light">
+                <h5 class="modal-title">Add new user</h5>
+                <button type="button" class="js_close_upper_corner close">
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div class="modal-body bg-secondary text-white">
+                <p>Please fill out the following fields:</p>
+                <div class="form-row">
+                  <div class="col">
+                    <input type="text" data-form="name" class="js_name form-control" placeholder="First name" required>
+                  </div>
+                  <div class="col">
+                    <input type="text" data-form="lastname" class="js_lastname form-control" placeholder="Last name"
+                      required>
+                  </div>
+                </div>
+                <div class="modal-footer bg-light">
+                  <button type="button" class="js_close_modal btn btn-secondary">Close</button>
+                  <button type="submit" id="js_save_user" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </div>
+        </form>
       </div>
     </main>
 
-<!-- Modal form -->
-    <div class="js_modal_form modal fade">
+    <!-- Modal alert -->
+    <div class="js_modal_alert modal fade">
       <form>
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header bg-light">
-              <h5 class="modal-title">Add new user</h5>
+            <div class="modal-header text-warning">
+              <h5 class="modal-title">Warning!</h5>
               <button type="button" class="js_close_upper_corner close">
                 <span>&times;</span>
               </button>
             </div>
-            <div class="modal-body bg-secondary text-white">
-              <p>Please fill out the following fields:</p>
-              <div class="form-row">
-                <div class="col">
-                  <input type="text" data-form = "name" class="js_name form-control" placeholder="First name" required>
-                </div>
-                <div class="col">
-                  <input type="text" data-form = "lastname" class="js_lastname form-control" placeholder="Last name" required>
-                </div>
-              </div>
-              <div class="modal-footer bg-light">
-                <button type="button" class="js_close_modal_form btn btn-secondary">Close</button>
-                <button type="submit" id ="js_save_user" class="btn btn-primary">Save</button>
-              </div>
+            <div class="modal-body text-danger">
+              <p>Are you sure you wanna delete forever?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="js_delete_user btn btn-primary">Yes</button>
+              <button type="button" class="js_close_modal btn btn-secondary">No</button>
             </div>
           </div>
-      </form>
-    </div>
-<!-- Modal alert -->
-    <div class="modal fade js_modal_alert">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header text-warning">
-            <h5 class="modal-title">Warning!</h5>
-            <button type="button" class="js_close_upper_corner_alert close">
-              <span>&times;</span>
-            </button>
-          </div>
-          <div class="modal-body text-danger">
-            <p>Are you sure you wanna delete forever?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="js_modify_user btn btn-primary">Yes</button>
-            <button type="button" class="js_close_modal_alert btn btn-secondary">No</button>
-          </div>
         </div>
-      </div>
+      </form>
     </div>
 
   </div>

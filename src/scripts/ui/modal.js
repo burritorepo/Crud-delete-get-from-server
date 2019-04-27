@@ -26,6 +26,7 @@ Modal.prototype.edit = function () {
 
 Modal.prototype.runUserFunction = function () {
   this.waitsubmit(this.referenceToUserFunction);
+  this.cancelModal();
 };
 
 Modal.prototype.waitsubmit = function (runUser) {
@@ -37,7 +38,11 @@ Modal.prototype.waitsubmit = function (runUser) {
   }
 }
 
-
-
+Modal.prototype.cancelModal = function () {
+  let  upperCloseBtn = this.element.querySelector('.js_close_upper_corner');
+  let  lowerCloseBtn = this.element.querySelector('.js_close_modal');
+  upperCloseBtn.onclick = this.close.bind(this);
+  lowerCloseBtn.onclick = this.close.bind(this);
+}
 
 

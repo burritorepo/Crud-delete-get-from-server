@@ -1,6 +1,12 @@
+#users {
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .card {
   font-size: 13px;
   position: relative;
+  margin: 10px;
   .card-img-top {
   border-radius: 50%;
   object-fit: cover;
