@@ -1,10 +1,20 @@
 'use strict';
 import Modal from '../ui/modal';
 
-export default function User(modal) {
+export function User(modal) {
   this.modal = modal;
   this.form = modal.querySelector('form');
   this.addDOM(this.makeCard(this.getValues().modalValues));
+}
+
+export async function getData() {
+  const response = await fetch(`http://localhost:3000/users`);
+  const users = await response.json();
+  const usersJSON = new User (document.querySelector('.js_modal_form'));
+
+  users.forEach((user) => {
+    usersJSON.addDOM(usersJSON.makeCard(user));
+     });
 }
 
 User.prototype.getValues = function () {
@@ -19,7 +29,8 @@ User.prototype.getValues = function () {
   return {
     modalEmpty, modalValues
   }
-};
+}
+
 
 User.prototype.makeCard = function (modalValues) {
   const card = document.createElement('div');
@@ -31,7 +42,6 @@ User.prototype.makeCard = function (modalValues) {
   card.querySelector('.js_delete').onclick = () => {
     this.deleteCard(card);
   }
-
   return card;
 }
 
@@ -71,20 +81,20 @@ User.prototype.editCard = function (card, modalValues) {
 User.prototype.deleteCard = function (card) {
   const deleteBtn = document.querySelector('.js_delete_user');
   const create = new Modal({
-        element: document.querySelector('.js_modal_alert'),
-        });
+    element: document.querySelector('.js_modal_alert'),
+  });
   create.open();
-  function deleteBtnAction () {
+  function deleteBtnAction() {
     card.remove();
     create.close();
   }
-  deleteBtn.onclick=deleteBtnAction.bind(this); 
+  deleteBtn.onclick = deleteBtnAction.bind(this);
 }
 
 User.prototype.setValues = function (card) {
   const { modalValues } = this.getValues();
-  console.log('valores', this.getValues());
   card.innerHTML = this.makeCardHTML(modalValues);
+
   card.querySelector('.js_edit').onclick = () => {
     this.editCard(card, modalValues);
   }
@@ -92,4 +102,3 @@ User.prototype.setValues = function (card) {
     this.deleteCard(card);
   }
 }
-

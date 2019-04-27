@@ -1,6 +1,8 @@
 import './styles/main.scss';
 import Modal from './scripts/ui/modal';
-import User from './scripts/components/user';
+import {User, getData} from './scripts/components/user';
+
+getData();
 
 function buttonOpenModalForm(button) {
   //adding functionality to button in order to open modal form

@@ -36,8 +36,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.3",
-    "all": "0.0.0",
+    "@babel/runtime": "^7.4.4",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.0",
     "lodash": "^4.17.11",
