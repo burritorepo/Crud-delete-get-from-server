@@ -16,6 +16,9 @@
   .card-body {
     flex-direction: column;
     align-items: center;
+    .email {
+      text-align: center;
+    }
   }
   .modifyCard {
     position: absolute;
@@ -26,4 +29,5 @@
       font-size: 20px;
     }
   }
+  
 }
